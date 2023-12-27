@@ -9,18 +9,38 @@ body{
 h1{
     font-size: 3rem;
     text-align: center;
+    background-color: #6b472d;
+    color:#d68f5b;
+    padding: 7px;
+    border-top: 20px rgb(211, 136, 87) inset;
+    border-bottom: 20px #da8549d7 solid;
+    border-left: 20px #d68f5b solid;
+    border-right: 20px rgb(170, 108, 66) solid;
+    box-shadow: 6px 6px 20px black;
 }
 button{
     height: 70px;
     width: 70px;
     font-size: 3rem;
-    border-radius: 50px;
-    border: 5px rgb(255, 164, 103) solid;
+    border-radius: 15px;
+    border: 5px rgb(255, 164, 103) inset;
+    background-color:#855837;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 10px black;
+}
+button img{
+    width: 90%;
+    filter: invert(78%) sepia(92%) saturate(2035%) hue-rotate(307deg) brightness(92%) contrast(123%);
 }
 .desk{
     height: 45%;
     background-color: rgb(170, 108, 66);
     width: 85%;
+    box-shadow: 6px 6px 20px black;
+    border: 10px solid #d68f5b;
+    background: url(./images/wood.PNG);
 }
 .modal-button{
     font-size: larger;
@@ -28,13 +48,20 @@ button{
     gap: 20px;
 }
 .sidebar{
+    background-image: url(./images/cobble.jpg) ;
+    color: #000000;
+    opacity: .9;
     background-color: grey;
     align-items: center;
     justify-content: center;
     gap: 40px;
     display: flex;
     flex-direction: column;
-
+}
+.sidebar div{
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
 }
 .shelf-block{
     display: flex;
