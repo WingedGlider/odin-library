@@ -37,6 +37,10 @@ button{
     align-items: center;
     box-shadow: 4px 4px 10px black;
 }
+button:hover{
+    box-shadow: none;
+    border: 5px #a76130 inset;
+}
 input[type="text"], input[type="number"], select{
     background-color:rgb(245, 234, 170);
     border:rgb(214, 202, 135) solid 2px;
@@ -181,11 +185,13 @@ form{
     border: 2px solid gold;
     border-top: 0px;
     box-shadow: 2px 2px 8px rgb(0, 0, 0);
+    border-radius: 0px 0px 5px 5px;
 }
 .unread{
     background-color: rgb(165, 25, 15);
     border: 2px solid gold;
     border-top: 0px;
     box-shadow: 2px 2px 8px rgb(0, 0, 0);
+    border-radius: 0px 0px 5px 5px;
 }
 

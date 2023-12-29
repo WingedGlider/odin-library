@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Carattere&family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <script src="./index.js" defer></script>
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <div class="sidebar">
@@ -23,23 +23,23 @@
                 </div>
                 <div class="form">
                     <form action="">
-                        <label for="title">Label</label>
+                        <label for="title">Title</label>
                         <input type="text" name="title" id="title" maxlength="70" required>
                         <label for="author">Author</label>
                         <input type="text" name="author" id="author" required>
                         <label for="pgNumber">Pages</label>
                         <input type="number" name="pgNumber" id="pgNumber" min="1" max="21450" required>
                         <label for="genre">Pick a genre</label>
-                        <select name="genre" id="genre" required>
-                            <option value="fiction">Fiction</option>
-                            <option value="non-fiction">Non-Fiction</option>
-                            <option value="fantasy">Fantasy</option>
-                            <option value="sci-fi">Sci-Fi</option>
-                            <option value="romance">Romance</option>
-                            <option value="history">History</option>
-                            <option value="mystery">Mystery</option>
-                            <option value="horror">Horror</option>
-                            <option value="other">Other</option>
+                        <select name="genre" id="genre">
+                            <option value="Fiction">Fiction</option>
+                            <option value="Non-Fiction">Non-Fiction</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Romance">Romance</option>
+                            <option value="History">History</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Other">Other</option>
                         </select>
                         <label for="read">Book read?</label>
                         <input type="checkbox" id="read" name="read">
@@ -47,17 +47,15 @@
                 </div>
             </div>
         </div>
-        <div><button><img src="./images/book-open-blank-variant.svg" alt="newbook"></button></div>
+        <div class="button-bar">
+            <button><img src="./images/book-open-blank-variant.svg" alt="newbook"></button>
+            <button><img src="./images/book-plus-outline.svg" alt="delete"></button>
+            <button><img src="./images/book-remove-outline.svg" alt="shelve"></button>
+        </div>
     </div>
     <div class="shelf-block">
         <div class="shelf">
             <div class="shelf-track">
-                <div class="book">
-                    <div class="banner read"></div>
-                    <div>
-                        <h2>Title of Book</h2>
-                    </div>
-                </div>
                 <div class="book last">
                     <div class="banner unread"></div>
                     <div>
