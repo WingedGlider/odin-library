@@ -62,8 +62,9 @@ button img{
     align-items: center;
     justify-content: center;
     background-color: rgb(136, 40, 40);
+    border: 7px solid rgb(99, 29, 29);
     width: 95%;
-    height: 95%;
+    height: 91%;
     margin-bottom: 10px;
     color: #1d0f06;
 }
@@ -99,7 +100,7 @@ form{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 45%;
+    height: 48%;
     width: 85%;
     background-color: rgb(170, 108, 66);
     box-shadow: 6px 6px 20px black;
@@ -139,7 +140,7 @@ form{
     background-color: #6b472d;
     height: 50%;
 }
-.shelf-track{
+.shelf-track, .shelf-track-2{
     position: relative;
     width: 110%;
     height: 135%;
@@ -162,9 +163,6 @@ form{
       rotate: 90deg;
       position: relative;
 }
-.last{
-    border-right: 20px solid rgb(90, 26, 26);
-}
 .book:hover{
     box-shadow: 0px 0px 30px rgb(224, 173, 125);
     z-index: 1;
@@ -179,6 +177,11 @@ form{
     right: 20%;
     height: 20%;
     opacity: .9;
+    background-color: rgb(165, 25, 15);
+    border: 2px solid gold;
+    border-top: 0px;
+    box-shadow: 2px 2px 8px rgb(0, 0, 0);
+    border-radius: 0px 0px 5px 5px;
 }
 .read{
     background-color: rgb(58, 165, 15);
@@ -187,11 +190,69 @@ form{
     box-shadow: 2px 2px 8px rgb(0, 0, 0);
     border-radius: 0px 0px 5px 5px;
 }
-.unread{
-    background-color: rgb(165, 25, 15);
-    border: 2px solid gold;
-    border-top: 0px;
-    box-shadow: 2px 2px 8px rgb(0, 0, 0);
-    border-radius: 0px 0px 5px 5px;
+.Fiction{
+    background-color: rgb(136, 40, 40);
+    border: 7px solid rgb(99, 29, 29);
 }
+.Non-Fiction{
+    background-color: rgb(48, 167, 88);
+    border: 7px solid rgb(28, 136, 60);
+}
+.Fantasy{
+    background-color: rgb(182, 190, 56);
+    border: 7px solid rgb(136, 134, 28);
+}
+.Sci-Fi{
+    
+    background-color: rgb(40, 109, 136);
+    border: 7px solid rgb(31, 85, 110);
+}
+.Romance{
+    background-color: rgb(167, 48, 167);
+    border: 7px solid rgb(132, 28, 136);
+}
+.History{
+    background-color: rgb(167, 115, 48);
+    border: 7px solid rgb(136, 93, 28);
+}
+.Mystery{
+    background-color: rgb(129, 48, 167);
+    border: 7px solid rgb(96, 28, 136);
+}
+.Horror{
+    background-color: rgb(189, 189, 189);
+    border: 7px solid rgb(41, 41, 41);
+}
+.Other{
+    background-color: rgb(52, 77, 218);
+    border: 7px solid rgb(60, 36, 167); 
+}
+.last.Fiction{
+    border-right: 20px solid rgb(99, 29, 29);
+}
+.last.Non-Fiction{
+    border-right: 20px solid rgb(28, 136, 60);
+}
+.last.Fantasy{
+    border-right: 20px solid rgb(136, 134, 28);
+}
+.last.Sci-Fi{
+    border-right: 20px solid rgb(31, 85, 110);
+}
+.last.Romance{
+    border-right: 20px solid rgb(132, 28, 136);
+}
+.last.History{
+    border-right: 20px solid rgb(136, 93, 28);
+}
+.last.Mystery{
+    border-right: 20px solid rgb(96, 28, 136);
+}
+.last.Horror{
+    border-right: 20px solid rgb(41, 41, 41);
+}
+.last.Other{
+    border-right: 20px solid rgb(60, 36, 167);
+}
+
 
