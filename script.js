@@ -1,5 +1,6 @@
 const Books = [];
 const Books2 = [];
+Books.push(new book("The Dunwich Horror", "H. P. Lovecraft", 431, "Horror", false))
 Books.push(new book("Alice in Wonderland", "Lewis Carroll", 352, "Fantasy", false));
 Books.push(new book("Caesar and Christ", "Will Durant", 752, "History", true));
 Books.push(new book("Dune", "Frank Herbert", 412, "Sci-Fi", true));
@@ -23,11 +24,10 @@ document.querySelectorAll('button').forEach((button) => {
     });
 });
 
-//1: We need to add an event listener to each book as they're shelved, that allows them to fill the desk book form based on the data stored in them
-//2: Another event listener must be added to the banner of each book that alters the read or unread status of both the banner and the linked object
+//4.5: Also make the alerts into modals (or popups) instead
 //5: find a way to prevent the form from submitting if parameters are not met
 //6: Add animation
-//7: Add media query
+//7: Add media query, 1400 width
 
 function formInit(book){
     document.querySelectorAll("input, select").forEach((input) =>{
@@ -41,6 +41,18 @@ function formInit(book){
             }
         });
     });
+    if (book != null){
+        document.querySelector('#author').value = book.author;
+        document.querySelector('#title').value = book.title;
+        document.querySelector('#pgNumber').value = book.pages;
+        document.querySelector('#genre').value = book.genre;
+        document.querySelector('#read').checked = book.read;
+        document.querySelector('.author').innerHTML = book.author;
+        document.querySelector('.title').innerHTML = book.title;
+        document.querySelector('h3').innerHTML = book.pages + " pages";
+        document.querySelector('.book-open').className = "book-open";
+        document.querySelector('.book-open').classList.add(book.genre);
+    }
 };
 
 function addBook(){
@@ -62,16 +74,34 @@ function shelve(shelf){
         for(let i = 0; i < shelf.length; i++){
             document.querySelector('.shelf-track').innerHTML += shelfBook;
             var currBook = document.querySelector('.shelf-track>.book:nth-child('+(i+1)+')');
+            var banner = currBook.querySelector('.banner');
             currBook.querySelector('h2').innerHTML = shelf[i].title;
             currBook.classList.add(shelf[i].genre);
+            if (shelf[i].read) banner.classList.add('read');
             if (i+1 == shelf.length && shelf.length < 10) currBook.classList.add('last');
         };
-        document.querySelectorAll('.shelf-track>.book').forEach((book) =>{
+        let bookIndex = document.querySelectorAll('.shelf-track>.book');
+        bookIndex.forEach((book) =>{ 
             book.addEventListener('click', ()=>{
-                //Get the index of an item in an array, based on a match between the index item's NAME attribute and the h2 of the 'book' element.
-                //If the desk is empty, use the index to populate the form data
-                //then use the index of the item to remove it from the array.
-                shelve(shelf); //finally, update the shelf.
+                if(document.querySelector('.desk').innerHTML == ""){
+                    document.querySelector('.desk').innerHTML = deskBook;
+                    formInit(Books[[...bookIndex].indexOf(book)]);
+                    shelf.splice([...bookIndex].indexOf(book), 1);
+                    shelve(shelf);
+                }
+                else alert("A book is on the desk already!");
+            });
+            book.querySelector(".banner").addEventListener('click', ()=>{
+                if (book.querySelector('.banner').classList.contains('read')) {
+                    Books[[...bookIndex].indexOf(book)].read = false;
+                    book.querySelector('.banner').classList.remove('read');
+                    event.stopPropagation();
+                }
+                else {
+                    (book.querySelector('.banner').classList.add('read'));
+                    Books[[...bookIndex].indexOf(book)].read = true;
+                    event.stopPropagation();
+                }
             });
         });
     }
@@ -80,16 +110,32 @@ function shelve(shelf){
         for(let i = 0; i < shelf.length; i++){
             document.querySelector('.shelf-track-2').innerHTML += shelfBook;
             var currBook = document.querySelector('.shelf-track-2>.book:nth-child('+(i+1)+')');
+            var banner = currBook.querySelector('.banner');
             currBook.querySelector('h2').innerHTML = shelf[i].title;
             currBook.classList.add(shelf[i].genre);
+            if (shelf[i].read) banner.classList.add('read');
             if (i+1 == shelf.length && shelf.length < 10) currBook.classList.add('last');
         }
-        document.querySelectorAll('.shelf-track-2>.book').forEach((book) =>{
+        let bookIndex = document.querySelectorAll('.shelf-track-2>.book');
+        bookIndex.forEach((book) =>{
             book.addEventListener('click', ()=>{
-                //Get the index of an item in an array, based on a match between the index item's NAME attribute and the h2 of the 'book' element.
-                //If the desk is empty, use the index to populate the form data
-                //then use the index of the item to remove it from the array.
-                shelve(shelf);//finally, update the shelf.
+                if(document.querySelector('.desk').innerHTML == "") {
+                    document.querySelector('.desk').innerHTML = deskBook;
+                    formInit(Books2[[...bookIndex].indexOf(book)]);
+                    shelf.splice([...bookIndex].indexOf(book), 1);
+                    shelve(shelf);
+                }
+                else alert("A book is on the desk already!");
+            });
+            book.querySelector(".banner").addEventListener('click', ()=>{
+                if (book.querySelector('.banner').classList.contains('read')) {
+                    Books[[...bookIndex].indexOf(book)].read = false;
+                    book.querySelector('.banner').classList.remove('read');
+                }
+                else {
+                    (book.querySelector('.banner').classList.add('read'));
+                    Books[[...bookIndex].indexOf(book)].read = true;
+                }
             });
         });
     };
