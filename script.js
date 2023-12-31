@@ -24,11 +24,6 @@ document.querySelectorAll('button').forEach((button) => {
     });
 });
 
-//4.5: Also make the alerts into modals (or popups) instead
-//5: find a way to prevent the form from submitting if parameters are not met
-//6: Add animation
-//7: Add media query, 1400 width
-
 function formInit(book){
     document.querySelectorAll("input, select").forEach((input) =>{
         input.addEventListener('input', ()=>{
