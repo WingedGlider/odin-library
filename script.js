@@ -1,3 +1,12 @@
+class book{
+    constructor (title,author,num,genre,read){
+    this.title = title;
+    this.author = author;
+    this.pages = num;
+    this.genre = genre;
+    this.read = read;
+    }
+}
 const Books = [];
 const Books2 = [];
 Books.push(new book("The Dunwich Horror", "H. P. Lovecraft", 431, "Horror", false))
@@ -8,6 +17,7 @@ let deskBook = document.querySelector('.desk').innerHTML;
 let shelfBook = document.querySelector('.shelf-track').innerHTML;
 formInit();
 shelve(Books);
+console.log(Books[0]);
 
 document.querySelectorAll('button').forEach((button) => {
     button.addEventListener('click', ()=>{
@@ -134,12 +144,4 @@ function shelve(shelf){
             });
         });
     };
-}
-
-function book(title, author, num, genre, read){
-    this.title = title;
-    this.author = author;
-    this.pages = num;
-    this.genre = genre;
-    this.read = read;
 }
